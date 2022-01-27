@@ -1,0 +1,178 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply scroll-smooth;
+}
+body {
+  @apply font-poppins text-base m-0 p-0 overflow-x-hidden;
+}
+
+.max-width {
+  @apply m-auto;
+  width: 90%;
+  max-width: 1300px;
+}
+
+h1 {
+  @apply text-3xl xs:text-4xl lg:text-6xl;
+}
+
+h2 {
+  @apply text-xl sm:text-2xl md:text-3xl md:text-4xl;
+}
+
+h3 {
+  @apply text-xl md:text-2xl xl:text-3xl;
+}
+
+h4 {
+  @apply text-lg md:text-xl lg:text-2xl;
+}
+
+h5 {
+  @apply text-lg;
+}
+p {
+  @apply text-base;
+}
+.dd-card:first-child {
+  @apply border-none md:col-span-2 xl:col-span-1 xl:row-span-2 bg-transparent;
+}
+.testimonial-card:nth-child(3) {
+  @apply md:col-span-2 xl:col-span-1;
+}
+
+input:focus, textarea:focus {
+  @apply outline outline-purple
+}
+
+body > * ::-webkit-scrollbar {
+  @apply w-2;
+}
+
+body > * ::-webkit-scrollbar-track {
+  @apply bg-light-grey rounded-md;
+}
+ 
+body > * ::-webkit-scrollbar-thumb {
+  @apply bg-black bg-opacity-20 rounded-md; 
+}
+
+body > * ::-webkit-scrollbar-thumb:hover {
+  @apply bg-black bg-opacity-30 cursor-pointer; 
+}
+
+.logo {
+  transition: transform .7s ease-in-out;
+}
+.logo-wrapper:hover .logo {
+  transform: rotate(360deg);
+}
+
+
+/* button style and hover effects */ 
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button {
+  @apply px-4 py-2 rounded-lg border border-purple bg-white block relative z-20;
+}
+
+button::before,
+button::after {
+  @apply bg-purple absolute z-10 rounded-lg;
+  content: '';
+}
+button:hover span, .submit-btn:hover span  {
+  @apply text-white relative z-20;
+}
+button:hover {
+  @apply border-white;
+}
+
+.contact-btn::after {
+ @apply h-full left-0 top-0 w-0; 
+}
+
+.contact-btn:hover:after {
+ @apply w-full;
+}
+
+.submit-btn::after {
+  @apply h-full left-0 top-0 w-0; 
+ }
+ 
+ .submit-btn:hover:after {
+  @apply w-full;
+ }
+ 
+
+
+ /* Menu and footer links */
+.menu a {
+  @apply cursor-pointer mx-4 text-lg md:text-xl font-semibold;
+ }
+ 
+ .footer-menu a {
+   @apply mr-4 text-xl font-semibold mb-4 xl:mb-0;
+ }
+
+ .underlined::after {
+  content: "";
+  border-bottom: solid 2px black;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s;
+}
+.underlined:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+@-webkit-keyframes underlined {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes underlined {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+/* flip cards */
+.flip-box {
+  perspective: 1000px; 
+}
+.flip-box:hover {
+
+}
+.flip-box-inner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.show-back, .flip-box-back {
+  transform: rotateY(180deg);
+}
+.flip-box-front, .flip-box-back {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
